@@ -36,6 +36,14 @@ Draft (v0.1)
 
 Contributions are welcome via pull requests.
 
+## Examples
+
+- Custodian (system guardian)
+- Scout (information retrieval)
+- Scribe (content generation)
+
+Each example demonstrates a valid SOUL ID entity definition.
+
 ## License
 
 MIT
