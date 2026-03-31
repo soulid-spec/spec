@@ -28,6 +28,7 @@ It introduces a structured model for defining entities that can persist across d
 - [SOUL ID v0.2](./spec/v0.2.md)
 - [SOUL ID v0.3](./spec/v0.3.md)
 - [SOUL ID v0.4](./spec/v0.4.md)
+- [SOUL ID v0.5](./spec/v0.5.md)
 
 ---
 
@@ -71,6 +72,15 @@ Defines how Soul Documents are published, discovered, and resolved:
 - discovery API with filters
 - DNS-based namespace-to-registry mapping
 - trust level integration
+
+### v0.5 — Ecosystem
+
+Tooling, SDK, and extension points for third-party adoption:
+
+- `soul` CLI (init, export, import, migrate, publish, resolve, verify, sign, fork)
+- Runtime Adapter SDK (`@soulid/core`, TypeScript interface)
+- Extension model: memory backends, registry extensions, capability providers
+- SDK packages: `@soulid/adapter-openclaw`, `@soulid/adapter-claude-code`, `@soulid/registry-client`
 
 ---
 
@@ -120,7 +130,8 @@ SOUL ID can be used to:
 │   ├── v0.1.md
 │   ├── v0.2.md
 │   ├── v0.3.md
-│   └── v0.4.md
+│   ├── v0.4.md
+│   └── v0.5.md
 └── examples/
     ├── custodian.json
     ├── scout.json

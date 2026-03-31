@@ -2,6 +2,24 @@
 
 All notable changes to this specification will be documented in this file.
 
+## v0.5
+
+### Added
+
+- Ecosystem layer (RFC-SOULID-0005)
+  - `soul` CLI — comandos completos: `init`, `validate`, `export`, `import`, `migrate`, `publish`, `resolve`, `verify`, `sign`, `fork`
+  - Runtime Adapter SDK — interface TypeScript (`SoulAdapter`) para implementar adapters de terceros
+  - Paquetes SDK: `@soulid/core`, `@soulid/adapter-openclaw`, `@soulid/adapter-claude-code`, `@soulid/registry-client`, `@soulid/cli`, `@soulid/crypto`
+  - Extension model: Memory Backends (file, git, s3), Registry Extensions (http, local, ipfs), Capability Providers
+  - Tabla de compatibilidad spec version ↔ SDK version
+
+### Compatibility
+
+- Fully backward compatible with v0.1, v0.2, v0.3, v0.4
+- CLI y SDK son opcionales — el core spec funciona sin ellos
+
+---
+
 ## v0.4
 
 ### Added
