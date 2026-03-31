@@ -19,16 +19,22 @@
   ],
   "memory": {
     "type": "persistent",
-    "scope": "personal"
+    "scope": "personal",
+    "backend": "file"
   },
   "lineage": {
     "origin": "metrono:rasputina:v1",
     "parent": null,
-    "forked_from": null
+    "forked_from": null,
+    "version": "1"
   },
   "owner": {
     "id": "cereal",
     "type": "individual"
+  },
+  "trust": {
+    "level": "vouched",
+    "vouchers": ["metrono:custodian:v1:001"]
   },
   "runtime_hints": {
     "preferred": ["openclaw"],
@@ -51,6 +57,20 @@
         },
         "capability_binding": {
           "source": "plugins.entries"
+        }
+      },
+      "claude-code": {
+        "runtime": "claude-code",
+        "version": "1.0",
+        "workspace": "~/project",
+        "identity_binding": {
+          "entry_point": "CLAUDE.md",
+          "soul_reference": "CLAUDE.md#soul"
+        },
+        "memory_binding": {
+          "strategy": "pointer-index",
+          "index_file": ".memory/MEMORY.md",
+          "topic_dir": ".memory/"
         }
       }
     }

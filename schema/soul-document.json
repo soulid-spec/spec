@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://soulid.io/schema/soul-document.json",
+  "title": "Soul Document",
+  "description": "SOUL ID Soul Document — runtime-agnostic identity for autonomous entities. Spec: https://soulid.io",
+  "type": "object",
+  "required": ["soul_id", "name", "archetype", "purpose", "values", "capabilities", "memory", "lineage"],
+  "additionalProperties": true,
+
+  "properties": {
+
+    "soul_id": {
+      "type": "string",
+      "description": "Canonical identity string. Format: namespace:archetype:version:instance",
+      "pattern": "^[a-z0-9_-]+:[a-z0-9_-]+:[a-z0-9_-]+:[a-z0-9_-]+$",
+      "examples": ["metrono:custodian:v1:001", "metrono:rasputina:v1:93af2"]
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the entity",
+      "minLength": 1
+    },
+
+    "archetype": {
+      "type": "string",
+      "description": "The entity's archetype — its essential nature or role",
+      "minLength": 1
+    },
+
+    "purpose": {
+      "type": "string",
+      "description": "A concise statement of the entity's primary purpose",
+      "minLength": 1
+    },
+
+    "values": {
+      "type": "array",
+      "description": "Core values that guide the entity's behavior",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+
+    "capabilities": {
+      "type": "array",
+      "description": "Named capabilities the entity can exercise",
+      "items": { "type": "string" }
+    },
+
+    "memory": {
+      "type": "object",
+      "description": "Memory configuration for the entity",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["persistent", "ephemeral", "none"],
+          "description": "Memory persistence model"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Memory scope (e.g. personal, system, project)"
+        },
+        "backend": {
+          "type": "string",
+          "enum": ["file", "git", "s3"],
+          "description": "Storage backend (RFC-SOULID-0005)"
+        }
+      }
+    },
+
+    "lineage": {
+      "type": "object",
+      "description": "Provenance and evolution chain",
+      "required": ["origin"],
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "The originating soul_id namespace:archetype:version (without instance)"
+        },
+        "parent": {
+          "type": ["string", "null"],
+          "description": "soul_id or IPFS CID of the direct predecessor"
+        },
+        "forked_from": {
+          "type": ["string", "null"],
+          "description": "soul_id this entity was forked from, if any"
+        },
+        "version": {
+          "type": "string",
+          "description": "Monotonically increasing document version"
+        }
+      }
+    },
+
+    "owner": {
+      "type": "object",
+      "description": "Ownership information (RFC-SOULID-0002)",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Owner identifier"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["individual", "organization", "agent"],
+          "description": "Owner type"
+        },
+        "did": {
+          "type": "string",
+          "description": "Owner DID (e.g. did:key:z6Mk..., did:web:example.com)"
+        },
+        "public_key": {
+          "type": "string",
+          "description": "Owner's public key in multibase format"
+        }
+      }
+    },
+
+    "signature": {
+      "type": "object",
+      "description": "Cryptographic signature over the Soul Document (RFC-SOULID-0002)",
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "description": "Signature algorithm (e.g. Ed25519, ES256K)"
+        },
+        "value": {
+          "type": "string",
+          "description": "Base64-encoded signature"
+        },
+        "signed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when the document was signed"
+        }
+      }
+    },
+
+    "trust": {
+      "type": "object",
+      "description": "Trust metadata (RFC-SOULID-0002)",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["unverified", "self-signed", "vouched", "verified"],
+          "description": "Trust level of this Soul Document"
+        },
+        "vouchers": {
+          "type": "array",
+          "description": "soul_ids of entities that have vouched for this one",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "runtime_hints": {
+      "type": "object",
+      "description": "Runtime adapter configuration (RFC-SOULID-0003)",
+      "properties": {
+        "preferred": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Preferred runtimes in order"
+        },
+        "compatibility": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Compatible runtimes"
+        },
+        "adapters": {
+          "type": "object",
+          "description": "Per-runtime adapter configuration",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "runtime": { "type": "string" },
+              "version": { "type": "string" },
+              "workspace": { "type": "string" },
+              "identity_binding": { "type": "object" },
+              "memory_binding": { "type": "object" },
+              "capability_binding": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+
+    "storage": {
+      "type": "object",
+      "description": "Decentralized storage metadata (RFC-SOULID-0006)",
+      "properties": {
+        "ipfs": {
+          "type": "object",
+          "properties": {
+            "cid": {
+              "type": "string",
+              "description": "IPFS Content Identifier"
+            },
+            "gateway": {
+              "type": "string",
+              "format": "uri",
+              "description": "IPFS gateway URL"
+            },
+            "pinned_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+
+    "did": {
+      "type": "object",
+      "description": "DID metadata (RFC-SOULID-0006)",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The did:soul DID for this entity",
+          "pattern": "^did:soul:.+"
+        },
+        "document_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the full DID Document"
+        }
+      }
+    },
+
+    "anchors": {
+      "type": "array",
+      "description": "On-chain anchor records (RFC-SOULID-0006)",
+      "items": {
+        "type": "object",
+        "required": ["network", "tx"],
+        "properties": {
+          "network": {
+            "type": "string",
+            "enum": ["base", "ethereum", "polygon", "arbitrum"],
+            "description": "Blockchain network"
+          },
+          "contract": {
+            "type": "string",
+            "description": "SoulRegistry contract address"
+          },
+          "tx": {
+            "type": "string",
+            "description": "Transaction hash"
+          },
+          "block": {
+            "type": "integer",
+            "description": "Block number"
+          },
+          "anchored_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
