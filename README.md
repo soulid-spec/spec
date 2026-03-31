@@ -98,3 +98,6 @@ SOUL ID can be used to:
 │   ├── v0.1.md
 │   └── v0.2.md
 └── examples/
+│   ├── custodian.json
+│   └── scout.json
+│   └── scribe.json
