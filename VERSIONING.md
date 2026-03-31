@@ -73,7 +73,7 @@ SOUL ID is expected to evolve through:
 
 1. Identity (v0.1)
 2. Trust (v0.2)
-3. Interoperability (future)
+3. Interoperability (v0.3) ✓
 4. Decentralization (future)
 
 ---
