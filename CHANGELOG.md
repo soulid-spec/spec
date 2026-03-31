@@ -2,6 +2,30 @@
 
 All notable changes to this specification will be documented in this file.
 
+## v0.4
+
+### Added
+
+- Registry specification (RFC-SOULID-0004)
+  - Registry model: public, private, and namespace-scoped registries
+  - Namespace ownership via signed claims
+  - Resolution protocol: `GET /resolve/<soul_id>` with hash-verified responses
+  - Publishing protocol: `POST /publish` with signature validation
+  - Update and revocation endpoints
+  - Discovery API: `GET /search` with filters (namespace, archetype, owner, trust_level)
+  - Well-known endpoint: `GET /.well-known/soul-registry`
+  - DNS TXT namespace-to-registry mapping for decentralized resolution
+  - Trust level propagation from RFC-SOULID-0002 into registry entries
+  - Reference implementation: `registry.metrono.ai`
+
+### Compatibility
+
+- Fully backward compatible with v0.1, v0.2, v0.3
+- Registry is optional — Soul Documents remain valid without registration
+- Runtimes MAY operate without a Registry for local or private deployments
+
+---
+
 ## v0.3
 
 ### Added
