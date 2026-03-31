@@ -2,52 +2,99 @@
 
 Identity layer for autonomous entities.
 
-SOUL ID defines how entities are identified, versioned, and transferred across runtimes.
+SOUL ID is a runtime-agnostic specification that defines how autonomous entities are identified, versioned, owned, and trusted across runtimes.
+
+---
+
+## Overview
+
+Modern AI agents can execute tasks, but they typically lack:
+
+- persistent identity
+- traceable evolution
+- clear ownership
+- verifiable trust
+- portability across runtimes
+
+SOUL ID addresses these limitations by separating **identity** from **execution**.
+
+It introduces a structured model for defining entities that can persist across different environments while retaining continuity, lineage, and verifiability.
+
+---
 
 ## Specification
 
 - [SOUL ID v0.1](./spec/v0.1.md)
+- [SOUL ID v0.2](./spec/v0.2.md)
 
-## Overview
+---
 
-SOUL ID introduces a runtime-agnostic identity system for autonomous entities.
+## Current Scope
 
-It enables:
+### v0.1 — Identity
 
-- persistent identity
-- lineage tracking
-- portability across runtimes
+Introduces the foundational identity layer:
 
-## Motivation
+- canonical `soul_id`
+- Soul Document structure
+- runtime-agnostic design
+- lineage model
+- lifecycle semantics
 
-Modern AI agents lack:
+### v0.2 — Trust
 
-- identity continuity
-- traceable evolution
-- interoperability
+Extends the specification with trust primitives:
 
-SOUL ID addresses these limitations by separating identity from execution.
+- ownership model
+- cryptographic signatures
+- trust layer
+- provenance and verification support
 
-## Status
+---
 
-Draft (v0.1)
+## Core Principles
 
-## Contributing
+SOUL ID is built on the following principles:
 
-Contributions are welcome via pull requests.
+- **Identity Persistence**  
+  An entity should retain its identity across runtimes and executions.
 
-## Examples
+- **Runtime Independence**  
+  Identity must not depend on a specific execution environment.
 
-- Custodian (system guardian)
-- Scout (information retrieval)
-- Scribe (content generation)
+- **Portability**  
+  Soul Documents should be interpretable across multiple runtimes.
 
-Each example demonstrates a valid SOUL ID entity definition.
+- **Evolvability**  
+  Entities should support lineage, versioning, and specialization.
 
-## License
+- **Verifiability**  
+  Identity should be able to express authenticity, ownership, and trust.
 
-MIT
+---
 
-## Introduced by
+## Example Use Cases
 
-(Leonardo Olmos) Metrono.ai
+SOUL ID can be used to:
+
+- define persistent identities for autonomous agents
+- track lineage across versions and forks
+- verify ownership and authenticity of entity definitions
+- support interoperability across runtimes such as OpenClaw, Claude, or Hermes
+- power registries and marketplaces of portable entities
+
+---
+
+## Repository Structure
+
+```text
+.
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── VERSIONING.md
+├── CONTRIBUTING.md
+├── spec/
+│   ├── v0.1.md
+│   └── v0.2.md
+└── examples/
