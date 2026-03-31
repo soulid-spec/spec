@@ -1,6 +1,14 @@
 # Versioning
 
-SOUL ID follows semantic evolution:
+SOUL ID uses staged specification evolution.
 
-- v0.x → experimental
-- v1.0 → stable specification
+## Phases
+
+- `v0.x` — experimental drafts
+- `v1.0` — first stable specification
+- `v1.x` — backward-compatible clarifications and extensions
+- `v2.0` — breaking semantic changes
+
+## Notes
+
+A new major version should be introduced only when identity semantics or core structure change in a non-compatible way.
