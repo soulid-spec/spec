@@ -26,6 +26,7 @@ It introduces a structured model for defining entities that can persist across d
 
 - [SOUL ID v0.1](./spec/v0.1.md)
 - [SOUL ID v0.2](./spec/v0.2.md)
+- [SOUL ID v0.3](./spec/v0.3.md)
 
 ---
 
@@ -49,6 +50,15 @@ Extends the specification with trust primitives:
 - cryptographic signatures
 - trust layer
 - provenance and verification support
+
+### v0.3 — Interoperability
+
+Defines how runtimes bind and instantiate Soul Documents:
+
+- runtime adapter interface
+- reference adapters for OpenClaw and Claude Code
+- pointer-index memory strategy
+- cross-runtime migration protocol
 
 ---
 
@@ -96,8 +106,10 @@ SOUL ID can be used to:
 ├── CONTRIBUTING.md
 ├── spec/
 │   ├── v0.1.md
-│   └── v0.2.md
+│   ├── v0.2.md
+│   └── v0.3.md
 └── examples/
-│   ├── custodian.json
-│   └── scout.json
-│   └── scribe.json
+    ├── custodian.json
+    ├── scout.json
+    ├── scribe.json
+    └── rasputina.json
