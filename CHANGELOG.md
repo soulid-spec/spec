@@ -2,6 +2,25 @@
 
 All notable changes to this specification will be documented in this file.
 
+## v0.6
+
+### Added
+
+- Decentralization layer (RFC-SOULID-0006)
+  - Track A — IPFS: content-addressed storage, CID en Soul Document, pinning services (Pinata, web3.storage, Infura)
+  - Track B — DID: método `did:soul`, DID Document, Universal Resolver driver, cross-DID ownership
+  - Track C — On-chain anchoring: hash commitment en Base/Ethereum/Polygon/Arbitrum, contrato `SoulRegistry`, lineage proofs on-chain
+  - Composabilidad: los tres tracks son independientes y combinables
+  - Privacy: hash commitments, IPFS cifrado, `did:peer` para identidades privadas
+- CLI: `soul anchor`, `soul did resolve/export/register`, `soul lineage --chain`
+
+### Compatibility
+
+- Fully backward compatible con v0.1–v0.5
+- Todos los tracks son opt-in
+
+---
+
 ## v0.5
 
 ### Added

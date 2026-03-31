@@ -29,6 +29,7 @@ It introduces a structured model for defining entities that can persist across d
 - [SOUL ID v0.3](./spec/v0.3.md)
 - [SOUL ID v0.4](./spec/v0.4.md)
 - [SOUL ID v0.5](./spec/v0.5.md)
+- [SOUL ID v0.6](./spec/v0.6.md)
 
 ---
 
@@ -72,6 +73,17 @@ Defines how Soul Documents are published, discovered, and resolved:
 - discovery API with filters
 - DNS-based namespace-to-registry mapping
 - trust level integration
+
+### v0.6 — Decentralization
+
+Soberanía total sin autoridad central:
+
+- **Track A — IPFS**: almacenamiento content-addressed, CID en Soul Document, pinning services
+- **Track B — DID**: método `did:soul`, DID Document W3C-compliant, Universal Resolver driver
+- **Track C — On-chain**: contrato `SoulRegistry` en Base/Ethereum/Polygon, lineage proofs inmutables
+- Composable: cualquier combinación de los tres tracks
+
+---
 
 ### v0.5 — Ecosystem
 
