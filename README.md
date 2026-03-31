@@ -42,4 +42,4 @@ MIT
 
 ## Introduced by
 
-Metrono.ai
+(Leonardo Olmos) Metrono.ai
