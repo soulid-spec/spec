@@ -27,6 +27,7 @@ It introduces a structured model for defining entities that can persist across d
 - [SOUL ID v0.1](./spec/v0.1.md)
 - [SOUL ID v0.2](./spec/v0.2.md)
 - [SOUL ID v0.3](./spec/v0.3.md)
+- [SOUL ID v0.4](./spec/v0.4.md)
 
 ---
 
@@ -59,6 +60,17 @@ Defines how runtimes bind and instantiate Soul Documents:
 - reference adapters for OpenClaw and Claude Code
 - pointer-index memory strategy
 - cross-runtime migration protocol
+
+### v0.4 — Registry
+
+Defines how Soul Documents are published, discovered, and resolved:
+
+- registry model (public, private, namespace-scoped)
+- resolution protocol (`/resolve/<soul_id>`)
+- publishing and revocation
+- discovery API with filters
+- DNS-based namespace-to-registry mapping
+- trust level integration
 
 ---
 
@@ -107,7 +119,8 @@ SOUL ID can be used to:
 ├── spec/
 │   ├── v0.1.md
 │   ├── v0.2.md
-│   └── v0.3.md
+│   ├── v0.3.md
+│   └── v0.4.md
 └── examples/
     ├── custodian.json
     ├── scout.json

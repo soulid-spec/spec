@@ -71,10 +71,11 @@ Examples:
 
 SOUL ID is expected to evolve through:
 
-1. Identity (v0.1)
-2. Trust (v0.2)
+1. Identity (v0.1) ✓
+2. Trust (v0.2) ✓
 3. Interoperability (v0.3) ✓
-4. Decentralization (future)
+4. Registry (v0.4) ✓
+5. Decentralization (future)
 
 ---
 
