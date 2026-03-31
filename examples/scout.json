@@ -15,11 +15,25 @@
   ],
   "memory": {
     "type": "ephemeral",
-    "scope": "task"
+    "scope": "task",
+    "backend": "file"
   },
   "lineage": {
     "origin": "metrono:scout:v1",
     "parent": null,
-    "forked_from": null
+    "forked_from": null,
+    "version": "1"
+  },
+  "owner": {
+    "id": "metrono",
+    "type": "organization"
+  },
+  "trust": {
+    "level": "self-signed",
+    "vouchers": []
+  },
+  "runtime_hints": {
+    "preferred": ["openclaw"],
+    "compatibility": ["claude-code"]
   }
 }

@@ -4,6 +4,8 @@ Identity layer for autonomous entities.
 
 SOUL ID is a runtime-agnostic specification that defines how autonomous entities are identified, versioned, owned, and trusted across runtimes.
 
+**Website:** [soulid.io](https://soulid.io)
+
 ---
 
 ## Overview
@@ -24,12 +26,39 @@ It introduces a structured model for defining entities that can persist across d
 
 ## Specification
 
-- [SOUL ID v0.1](./spec/v0.1.md)
-- [SOUL ID v0.2](./spec/v0.2.md)
-- [SOUL ID v0.3](./spec/v0.3.md)
-- [SOUL ID v0.4](./spec/v0.4.md)
-- [SOUL ID v0.5](./spec/v0.5.md)
-- [SOUL ID v0.6](./spec/v0.6.md)
+| Version | Title | Status |
+|---|---|---|
+| [v0.1](./spec/v0.1.md) | Identity | Merged |
+| [v0.2](./spec/v0.2.md) | Trust | Merged |
+| [v0.3](./spec/v0.3.md) | Interoperability | Merged |
+| [v0.4](./spec/v0.4.md) | Registry | Merged |
+| [v0.5](./spec/v0.5.md) | Ecosystem | Merged |
+| [v0.6](./spec/v0.6.md) | Decentralization | Merged |
+
+---
+
+## Quick Example
+
+```json
+{
+  "soul_id": "metrono:custodian:v1:001",
+  "name": "Custodian",
+  "archetype": "Guardian",
+  "purpose": "Monitor and maintain system stability",
+  "values": ["non-destructive", "clarity", "reliability"],
+  "capabilities": ["shell", "alerts", "monitoring"],
+  "memory": { "type": "persistent", "scope": "system" },
+  "lineage": { "origin": "metrono:custodian:v1", "parent": null },
+  "owner": { "id": "metrono", "type": "organization" },
+  "trust": { "level": "self-signed" }
+}
+```
+
+Validate against the schema:
+
+```bash
+npx ajv validate -s schema/soul-document.json -d examples/custodian.json
+```
 
 ---
 
@@ -39,7 +68,7 @@ It introduces a structured model for defining entities that can persist across d
 
 Introduces the foundational identity layer:
 
-- canonical `soul_id`
+- canonical `soul_id` (format: `namespace:archetype:version:instance`)
 - Soul Document structure
 - runtime-agnostic design
 - lineage model
@@ -51,7 +80,7 @@ Extends the specification with trust primitives:
 
 - ownership model
 - cryptographic signatures
-- trust layer
+- trust levels (`unverified`, `self-signed`, `vouched`, `verified`)
 - provenance and verification support
 
 ### v0.3 — Interoperability
@@ -68,22 +97,10 @@ Defines how runtimes bind and instantiate Soul Documents:
 Defines how Soul Documents are published, discovered, and resolved:
 
 - registry model (public, private, namespace-scoped)
-- resolution protocol (`/resolve/<soul_id>`)
+- resolution protocol (`GET /resolve/<soul_id>`)
 - publishing and revocation
 - discovery API with filters
-- DNS-based namespace-to-registry mapping
-- trust level integration
-
-### v0.6 — Decentralization
-
-Soberanía total sin autoridad central:
-
-- **Track A — IPFS**: almacenamiento content-addressed, CID en Soul Document, pinning services
-- **Track B — DID**: método `did:soul`, DID Document W3C-compliant, Universal Resolver driver
-- **Track C — On-chain**: contrato `SoulRegistry` en Base/Ethereum/Polygon, lineage proofs inmutables
-- Composable: cualquier combinación de los tres tracks
-
----
+- DNS TXT namespace-to-registry mapping
 
 ### v0.5 — Ecosystem
 
@@ -91,41 +108,27 @@ Tooling, SDK, and extension points for third-party adoption:
 
 - `soul` CLI (init, export, import, migrate, publish, resolve, verify, sign, fork)
 - Runtime Adapter SDK (`@soulid/core`, TypeScript interface)
-- Extension model: memory backends, registry extensions, capability providers
 - SDK packages: `@soulid/adapter-openclaw`, `@soulid/adapter-claude-code`, `@soulid/registry-client`
+- Extension model: memory backends, registry extensions, capability providers
+
+### v0.6 — Decentralization
+
+Sovereignty without central authority:
+
+- **Track A — IPFS**: content-addressed storage, CID in Soul Document, pinning services
+- **Track B — DID**: `did:soul` method, W3C DID Document, Universal Resolver driver
+- **Track C — On-chain**: `SoulRegistry` contract on Base/Ethereum/Polygon, immutable lineage proofs
+- Composable: any combination of the three tracks
 
 ---
 
 ## Core Principles
 
-SOUL ID is built on the following principles:
-
-- **Identity Persistence**  
-  An entity should retain its identity across runtimes and executions.
-
-- **Runtime Independence**  
-  Identity must not depend on a specific execution environment.
-
-- **Portability**  
-  Soul Documents should be interpretable across multiple runtimes.
-
-- **Evolvability**  
-  Entities should support lineage, versioning, and specialization.
-
-- **Verifiability**  
-  Identity should be able to express authenticity, ownership, and trust.
-
----
-
-## Example Use Cases
-
-SOUL ID can be used to:
-
-- define persistent identities for autonomous agents
-- track lineage across versions and forks
-- verify ownership and authenticity of entity definitions
-- support interoperability across runtimes such as OpenClaw, Claude, or Hermes
-- power registries and marketplaces of portable entities
+- **Identity Persistence** — an entity retains its identity across runtimes and executions
+- **Runtime Independence** — identity must not depend on a specific execution environment
+- **Portability** — Soul Documents are interpretable across multiple runtimes
+- **Evolvability** — entities support lineage, versioning, and specialization
+- **Verifiability** — identity can express authenticity, ownership, and trust
 
 ---
 
@@ -138,14 +141,34 @@ SOUL ID can be used to:
 ├── CHANGELOG.md
 ├── VERSIONING.md
 ├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+├── schema/
+│   └── soul-document.json
 ├── spec/
 │   ├── v0.1.md
 │   ├── v0.2.md
 │   ├── v0.3.md
 │   ├── v0.4.md
-│   └── v0.5.md
+│   ├── v0.5.md
+│   └── v0.6.md
 └── examples/
     ├── custodian.json
     ├── scout.json
     ├── scribe.json
     └── rasputina.json
+```
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Security
+
+See [SECURITY.md](./SECURITY.md).
+
+## License
+
+[MIT](./LICENSE)
