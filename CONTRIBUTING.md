@@ -2,6 +2,19 @@
 
 SOUL ID is an open specification.
 
-Contributions are welcome via pull requests.
+Contributions are welcome through issues and pull requests.
 
-Please ensure changes are aligned with the design principles.
+## Guidelines
+
+Please keep contributions aligned with the core design principles:
+
+- identity persistence
+- runtime independence
+- portability
+- evolvability
+
+## Process
+
+1. Open an issue for discussion when proposing major changes
+2. Submit a pull request with clear rationale
+3. Keep changes focused and minimal
