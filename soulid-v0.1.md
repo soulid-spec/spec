@@ -1,0 +1,160 @@
+# RFC-SOULID-0001
+
+## SOUL ID v0.1 — Identity Layer for Autonomous Entities
+
+Status: Draft  
+Category: Standards Track  
+Author: (Leonardo Olmos) Metrono.ai  
+Date: 2026-03-31  
+
+---
+
+## Abstract
+
+This document specifies SOUL ID, a runtime-agnostic identity system for autonomous entities.
+
+SOUL ID defines a canonical identifier and a structured document format that enables persistent identity, lineage tracking, and interoperability across heterogeneous execution environments.
+
+---
+
+## 1. Introduction
+
+Modern AI systems increasingly rely on autonomous agents capable of executing tasks across different runtimes, models, and infrastructures.
+
+However, these agents lack a standardized mechanism for:
+
+- persistent identity  
+- continuity across executions  
+- traceability of evolution  
+- portability between runtimes  
+
+SOUL ID introduces a canonical identity layer that separates an entity’s identity from its execution.
+
+---
+
+## 2. Terminology
+
+The key words MUST, SHOULD, and MAY are to be interpreted as described in RFC 2119.
+
+- Entity: An autonomous unit capable of executing tasks with defined behavior  
+- SOUL ID: A canonical identifier representing an entity  
+- Soul Document: A structured document describing the entity  
+- Runtime: An execution environment  
+- Embodiment: A runtime-specific instantiation of an entity  
+
+---
+
+## 3. Design Principles
+
+### 3.1 Identity Persistence  
+An entity MUST retain its identity across runtimes and executions  
+
+### 3.2 Runtime Independence  
+SOUL ID MUST NOT depend on any specific runtime implementation  
+
+### 3.3 Portability  
+A Soul Document MUST be interpretable across multiple runtimes  
+
+### 3.4 Evolvability  
+Entities SHOULD support lineage and versioning  
+
+---
+
+## 4. SOUL ID Format
+
+Syntax:
+
+<namespace>:<archetype>:<version>:<instance>
+
+Example:
+
+metrono:custodian:v1:93af2
+
+---
+
+## 5. Soul Document
+
+Format: JSON
+
+Example:
+
+{
+  "soul_id": "metrono:custodian:v1:93af2",
+  "name": "Custodian",
+  "archetype": "Guardian",
+  "purpose": "Monitor and maintain system stability",
+  "values": [
+    "non-destructive",
+    "clarity",
+    "reliability"
+  ],
+  "capabilities": [
+    "shell",
+    "web",
+    "alerts"
+  ],
+  "memory": {
+    "type": "persistent",
+    "scope": "project"
+  },
+  "lineage": {
+    "origin": "metrono:custodian:v1",
+    "parent": null,
+    "forked_from": null
+  },
+  "runtime_hints": {
+    "preferred": ["openclaw"],
+    "compatibility": ["claude", "hermes"]
+  }
+}
+
+---
+
+## 6. Identity Semantics
+
+- MUST be unique  
+- MUST be immutable  
+- SHOULD support versioning  
+
+---
+
+## 7. Lineage Model
+
+Supports:
+
+- origin  
+- parent  
+- forked_from  
+
+---
+
+## 8. Runtime Binding
+
+SOUL ID does not define execution. Runtimes MUST implement adapters.
+
+---
+
+## 9. Lifecycle
+
+define → instantiate → execute → evolve → version → fork → migrate
+
+---
+
+## 10. Interoperability
+
+Runtimes SHOULD:
+
+- accept Soul Documents  
+- preserve identity  
+
+---
+
+## 11. Security Considerations
+
+Not defined in v0.1.
+
+---
+
+## 12. Conclusion
+
+SOUL ID establishes identity, portability, and continuity for autonomous entities.
