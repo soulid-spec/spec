@@ -13,7 +13,7 @@
       "type": "string",
       "description": "Canonical identity string. Format: namespace:archetype:version:instance",
       "pattern": "^[a-z0-9_-]+:[a-z0-9_-]+:[a-z0-9_-]+:[a-z0-9_-]+$",
-      "examples": ["metrono:custodian:v1:001", "metrono:rasputina:v1:93af2"]
+      "examples": ["soulid:custodian:v1:001", "soulid:rasputina:v1:93af2"]
     },
 
     "name": {

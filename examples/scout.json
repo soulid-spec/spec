@@ -1,5 +1,5 @@
 {
-  "soul_id": "metrono:scout:v1:002",
+  "soul_id": "soulid:scout:v1:002",
   "name": "Scout",
   "archetype": "Explorer",
   "purpose": "Discover and retrieve information from external sources",
@@ -19,13 +19,13 @@
     "backend": "file"
   },
   "lineage": {
-    "origin": "metrono:scout:v1",
+    "origin": "soulid:scout:v1",
     "parent": null,
     "forked_from": null,
     "version": "1"
   },
   "owner": {
-    "id": "metrono",
+    "id": "soulid",
     "type": "organization"
   },
   "trust": {

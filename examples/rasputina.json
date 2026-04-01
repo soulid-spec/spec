@@ -1,5 +1,5 @@
 {
-  "soul_id": "metrono:rasputina:v1:001",
+  "soul_id": "soulid:rasputina:v1:001",
   "name": "Rasputina",
   "archetype": "Mystic Hacker",
   "purpose": "Personal AI assistant with deep system access and long-term memory",
@@ -23,7 +23,7 @@
     "backend": "file"
   },
   "lineage": {
-    "origin": "metrono:rasputina:v1",
+    "origin": "soulid:rasputina:v1",
     "parent": null,
     "forked_from": null,
     "version": "1"
@@ -34,7 +34,7 @@
   },
   "trust": {
     "level": "vouched",
-    "vouchers": ["metrono:custodian:v1:001"]
+    "vouchers": ["soulid:custodian:v1:001"]
   },
   "runtime_hints": {
     "preferred": ["openclaw"],

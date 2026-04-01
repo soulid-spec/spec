@@ -41,15 +41,15 @@ It introduces a structured model for defining entities that can persist across d
 
 ```json
 {
-  "soul_id": "metrono:custodian:v1:001",
+  "soul_id": "soulid:custodian:v1:001",
   "name": "Custodian",
   "archetype": "Guardian",
   "purpose": "Monitor and maintain system stability",
   "values": ["non-destructive", "clarity", "reliability"],
   "capabilities": ["shell", "alerts", "monitoring"],
   "memory": { "type": "persistent", "scope": "system" },
-  "lineage": { "origin": "metrono:custodian:v1", "parent": null },
-  "owner": { "id": "metrono", "type": "organization" },
+  "lineage": { "origin": "soulid:custodian:v1", "parent": null },
+  "owner": { "id": "soulid", "type": "organization" },
   "trust": { "level": "self-signed" }
 }
 ```

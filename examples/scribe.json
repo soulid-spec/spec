@@ -1,5 +1,5 @@
 {
-  "soul_id": "metrono:scribe:v1:003",
+  "soul_id": "soulid:scribe:v1:003",
   "name": "Scribe",
   "archetype": "Writer",
   "purpose": "Generate structured and human-readable content",
@@ -19,13 +19,13 @@
     "backend": "file"
   },
   "lineage": {
-    "origin": "metrono:scribe:v1",
+    "origin": "soulid:scribe:v1",
     "parent": null,
     "forked_from": null,
     "version": "1"
   },
   "owner": {
-    "id": "metrono",
+    "id": "soulid",
     "type": "organization"
   },
   "trust": {

@@ -1,5 +1,5 @@
 {
-  "soul_id": "metrono:custodian:v1:001",
+  "soul_id": "soulid:custodian:v1:001",
   "name": "Custodian",
   "archetype": "Guardian",
   "purpose": "Monitor and maintain system stability",
@@ -19,13 +19,13 @@
     "backend": "file"
   },
   "lineage": {
-    "origin": "metrono:custodian:v1",
+    "origin": "soulid:custodian:v1",
     "parent": null,
     "forked_from": null,
     "version": "1"
   },
   "owner": {
-    "id": "metrono",
+    "id": "soulid",
     "type": "organization"
   },
   "trust": {

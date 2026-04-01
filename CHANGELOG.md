@@ -53,7 +53,7 @@ All notable changes to this specification will be documented in this file.
   - Well-known endpoint: `GET /.well-known/soul-registry`
   - DNS TXT namespace-to-registry mapping for decentralized resolution
   - Trust level propagation from RFC-SOULID-0002 into registry entries
-  - Reference implementation: `registry.metrono.ai`
+  - Reference implementation: `registry.soulid.ai`
 
 ### Compatibility
 
